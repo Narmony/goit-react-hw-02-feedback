@@ -10,6 +10,7 @@ class App extends React.Component {
     good: 0,
     neutral: 0,
     bad: 0,
+    // baaaad: 0,
   };
 
   handleFeedback = option => {
@@ -21,7 +22,13 @@ class App extends React.Component {
   };
 
   countTotalFeedback = () => {
-    return this.state.good + this.state.neutral + this.state.bad;
+    const data = this.state;
+    // console.log(Object.values(data));
+    // return this.state.good + this.state.neutral + this.state.bad;
+
+    const options = Object.values(data);
+    // console.log(options);
+    return options.reduce((acc, stat) => acc + stat, 0);
   };
 
   countPositiveFeedbackPercentage = () => {
